@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class AddTodo extends Component {
   state = {
-    content: ''
+    title: ''
   }
 
   handleChange = (e) => {
     this.setState({
-      content: e.target.value
+      title: e.target.value
     })
   }
 
@@ -15,7 +15,7 @@ class AddTodo extends Component {
     e.preventDefault();
    this.props.addTodo(this.state);
    this.setState({
-     content: ''
+    title: ''
    })
   }
 
@@ -24,7 +24,7 @@ class AddTodo extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Add new todo:</label>
-          <input type="text" onChange={this.handleChange} value={this.state.content}/>
+          <input type="text" onChange={this.handleChange} value={this.state.title}/>
         </form>
       </div>
     )
