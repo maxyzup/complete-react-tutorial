@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Todos = ({todos, deleteTodo}) => {
   const todoLists = todos.length ? (
@@ -6,7 +7,9 @@ const Todos = ({todos, deleteTodo}) => {
       return (
         <div className="collection-item" key={todo.id}>
           <div>
-            <span>{todo.title}</span>
+            <Link to={'/todos/' + todo.id}>
+              <span>{todo.title}</span>
+            </Link>
             <button onClick={() => deleteTodo(todo.id)} className="material-icons red-text right">delete</button>
           </div>
         </div>

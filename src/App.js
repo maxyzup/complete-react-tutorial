@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
+import Todo from './components/Todo';
 
 class App extends Component {
 
@@ -12,9 +13,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Navbar />
-          <Route exact path='/' component={Home} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/about' component={About} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/about' component={About} />
+            <Route path='/todos/:id' component={Todo} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
